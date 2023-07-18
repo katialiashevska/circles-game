@@ -1,4 +1,4 @@
-const playButton = document.getElementById("play-button")
+const playButton = document.querySelector(".play-button")
 const startPage = document.getElementById("start-page")
 const gamePage = document.getElementById("game-page")
 let game
@@ -13,4 +13,6 @@ const startGame = () => {
     console.log("start game")
     game = new Game()
     game.newLevel()
+    game.loseLevel()
+    game.winGame()
 }
