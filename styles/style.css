@@ -1,6 +1,5 @@
 :root {
     --main-gray: #303030;
-    --green-button: #d6f67a;
 }
 
 html {
@@ -56,7 +55,7 @@ body {
 }
 
 .background-bubble.green {
-    background: var(--green-button);
+    background: #d6f67a;
     top: 35rem;
     left: 90rem;
 }
@@ -72,7 +71,7 @@ body {
 #game-title {
     height: 15rem;
     display: inline-flex;
-    padding: 4rem 5rem;
+    padding: 2rem 5rem;
     justify-content: center;
     align-items: center;
     border-radius: 20rem;
@@ -89,11 +88,13 @@ body {
 }
 
 .play-button {
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     padding: 0.8rem 2.4rem;
     border-radius: 4rem;
     border: 1px solid var(--main-gray);
-    background: var(--green-button);
+    background: #d6f67a;
     box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.25);
     color: var(--main-gray);
     font-size: 3rem;
@@ -102,13 +103,12 @@ body {
 }
 
 .play-button:hover {
-    color: var(--green-button);
+    background: #f5b897;
     box-shadow: none;
-    background-color: var(--main-gray);
 }
 
 .special-margin {
-    margin-top: -5vh;
+    margin-top: -4.5vh;
 }
 
 #game-page {
@@ -152,6 +152,12 @@ body {
 .game-circle {
     border-radius: 50%;
     cursor: pointer;
+    transition: border 0.3s linear;
+}
+
+.game-circle:hover {
+    outline: 3px solid rgba(255, 255, 255, 0.5);
+    outline-offset: -3px;
 }
 
 .vertical-line {
@@ -169,7 +175,7 @@ body {
     right: 3vw;
 }
 
-.vertical-line.top {
+/* .vertical-line.top {
     height: 20vh;
     left: 50vw;
 }
@@ -177,8 +183,8 @@ body {
 .vertical-line.bottom {
     height: 20vh;
     left: 50vw;
-    bottom: 5vh;
-}
+    top: 75vh;
+} */
 
 .end-page {
     flex-direction: column;
@@ -191,7 +197,7 @@ body {
 
 .end-page > h2 {
     display: flex;
-    padding: 2.5rem 6.5rem;
+    padding: 2rem 5rem;
     justify-content: center;
     align-items: center;
     border-radius: 20rem;
@@ -209,4 +215,53 @@ body {
     text-align: center;
     font-size: 2rem;
     font-weight: 400;
+}
+
+.dot {
+    border-radius: 50%;
+    width: 3rem;
+    height: 3rem;
+    border: 1px solid var(--main-gray);
+    position: absolute;
+}
+
+.dot.purple {
+    background-color: #bd8aff;
+    top: 50%;
+    left: 1.8vw;
+    transform: translateY(-50%);
+}
+
+.dot.pink {
+    background-color: #f98acc;
+    top: 50%;
+    right: 1.8vw;
+    transform: translateY(-50%);
+}
+
+/* .dot.blue {
+    background-color: #acd2ff;
+    top: 23vh;
+    left: 48.8vw;
+}
+
+.dot.orange {
+    background-color: #f6a67a;
+    top: 72vh;
+    left: 48.8vw;
+} */
+
+#progress-bar {
+    width: 101vw;
+    height: 2rem;
+    position: absolute;
+    bottom: 0;
+}
+
+#progress-bar-fill {
+    width: 0;
+    height: 100%;
+    border-radius: 1rem;
+    background-color: #7ac9f6;
+    transition: width 1s ease;
 }

@@ -1,7 +1,9 @@
 class Game {
     constructor() {
+        this.gamePage = document.getElementById("game-page")
         this.gameContainer = document.getElementById("game-container")
         this.level = document.getElementById("level")
+        this.progressBar = document.getElementById("progress-bar-fill")
         this.winPage = document.querySelector(".end-page.win")
         this.losePage = document.querySelector(".end-page.lose")
         this.currentLevel = 1
@@ -84,6 +86,8 @@ class Game {
     }
 
     newLevel() {
+        this.gameContainer.innerHTML = ""
+        this.updateProgressBar()
         this.addCircles(this.amountOfCircles())
         this.winLevel()
     }
@@ -93,6 +97,7 @@ class Game {
             this.currentLevel++
             this.level.textContent = "Level " + this.currentLevel
             this.gameContainer.innerHTML = ""
+            this.updateProgressBar()
             this.newLevel()
             this.winGame()
         })
@@ -101,15 +106,22 @@ class Game {
     loseLevel() {
         this.baseCircle.addEventListener("click", () => {
             this.gameIsOver = true
-            // this.losePage.classList.replace("inactive", "active")
-            alert("You lost!")
+            this.gamePage.classList.replace("active", "inactive")
+            this.losePage.classList.replace("inactive", "active")
+            this.level.textContent = "Level 1"
         })
     }
 
     winGame() {
         if (this.currentLevel === 31) {
-            // this.winPage.classList.replace("inactive", "active")
-            alert("You won!")
+            this.gamePage.classList.replace("active", "inactive")
+            this.winPage.classList.replace("inactive", "active")
+            this.level.textContent = "Level 1"
         }
+    }
+
+    updateProgressBar() {
+        const progress = ((this.currentLevel - 1) / this.levelsTotal) * 100
+        this.progressBar.style.width = progress + "%"
     }
 }

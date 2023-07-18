@@ -8,6 +8,7 @@
         <title>Odd One Out</title>
     </head>
     <body>
+        <div id="cursor"></div>
         <div id="background">
             <div class="background-bubble pink"></div>
             <div class="background-bubble orange"></div>
@@ -21,28 +22,42 @@
             </div>
             <button class="play-button special-margin">Let's play!</button>
             <div class="vertical-line left"></div>
+            <div class="dot purple"></div>
             <div class="vertical-line right"></div>
-            <div class="vertical-line top"></div>
-            <div class="vertical-line bottom"></div>
+            <div class="dot pink"></div>
         </div>
 
         <div id="game-page" class="inactive">
             <h1>Odd One Out</h1>
             <div id="game-container"></div>
             <h3 id="level">Level 1</h3>
+            <div id="progress-bar">
+                <div id="progress-bar-fill"></div>
+            </div>
             <div class="vertical-line left"></div>
+            <div class="dot purple"></div>
+            <div class="vertical-line right"></div>
+            <div class="dot pink"></div>
         </div>
 
         <div class="end-page win inactive">
             <h2 id="well-done">Well done!</h2>
             <p class="credits">This game was made by <a href="https://www.linkedin.com/in/katia-liashevska/">Katia</a> @ Ironhack</p>
-            <button class="play-button">Play again</button>
+            <button class="play-button play-again">Play again</button>
+            <div class="vertical-line left"></div>
+            <div class="dot purple"></div>
+            <div class="vertical-line right"></div>
+            <div class="dot pink"></div>
         </div>
 
         <div class="end-page lose inactive">
             <h2 id="game-over">Game over!</h2>
             <p class="credits">This game was made by <a href="https://www.linkedin.com/in/katia-liashevska/">Katia</a> @ Ironhack</p>
-            <button class="play-button">Try again</button>
+            <button class="play-button try-again">Try again</button>
+            <div class="vertical-line left"></div>
+            <div class="dot purple"></div>
+            <div class="vertical-line right"></div>
+            <div class="dot pink"></div>
         </div>
 
         <script type="text/javascript" src="script.js"></script>
