@@ -10,7 +10,7 @@ html {
 }
 
 body {
-    /* overflow: hidden; */
+    overflow: hidden;
     background-color: rgba(243, 220, 192, 0.7);
 }
 
@@ -21,8 +21,8 @@ body {
     width: 3rem;
     border-radius: 50%;
     outline: 2px solid rgba(255, 255, 255, 0.5);
-    background-color: rgba(0, 0, 0, 0.2);
     outline-offset: -2px;
+    background-color: rgba(0, 0, 0, 0.2);
 } */
 
 .active {
@@ -89,12 +89,13 @@ body {
     border: 1px solid var(--main-gray);
     background: #fff;
     white-space: nowrap;
+    z-index: 1;
 }
 
 #game-title h1 {
     color: var(--main-gray);
     text-align: center;
-    font-size: 12rem;
+    font-size: 11rem;
     font-weight: 400;
 }
 
@@ -111,15 +112,64 @@ body {
     font-size: 3rem;
     font-weight: 400;
     cursor: pointer;
+    z-index: 2;
 }
 
 .play-button:hover {
-    background: #f5b897;
+    background: #ecb0b0;
     box-shadow: none;
 }
 
 .special-margin {
     margin-top: -4.5vh;
+}
+
+.text-block {
+    width: 17vw;
+    color: var(--main-gray);
+    font-size: 2rem;
+    font-weight: 400;
+    margin: 13vh auto;
+}
+
+@media (max-height: 650px) {
+    .text-block {
+        margin: 9vh auto;
+    }
+}
+
+.text-block.right-aligned {
+    text-align: right;
+}
+
+.text-block.left-aligned {
+    text-align: left;
+}
+
+a {
+    color: var(--main-gray);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration-line: underline;
+}
+
+.white-star {
+    position: absolute;
+    height: 25rem;
+    width: 25rem;
+}
+
+.white-star.left {
+    left: 8vw;
+    top: 8vh;
+}
+
+.white-star.right {
+    right: 10vw;
+    bottom: 10vh;
 }
 
 #game-page {
@@ -129,6 +179,15 @@ body {
     position: relative;
     height: 100vh;
 }
+
+/* #clock {
+    border-radius: 50%;
+    width: 6rem;
+    height: 6rem;
+    background-image: conic-gradient(#d6f67a 0deg 300deg, transparent 305deg);
+    border: 1px solid var(--main-gray);
+    z-index: 5;
+} */
 
 #game-page > h1 {
     color: var(--main-gray);
@@ -148,6 +207,7 @@ body {
     align-items: center;
     flex-wrap: wrap;
     padding: 3rem;
+    z-index: 1;
 }
 
 #level {
@@ -185,16 +245,16 @@ body {
     right: 3vw;
 }
 
-/* .vertical-line.top {
+.vertical-line.top {
     height: 20vh;
-    left: 50vw;
+    left: 60vw;
 }
 
 .vertical-line.bottom {
     height: 20vh;
-    left: 50vw;
+    left: 38.5vw;
     top: 75vh;
-} */
+}
 
 .end-page {
     flex-direction: column;
@@ -218,6 +278,7 @@ body {
     font-size: 8rem;
     font-weight: 400;
     margin-bottom: 0;
+    z-index: 1;
 }
 
 .credits {
@@ -225,6 +286,7 @@ body {
     text-align: center;
     font-size: 2rem;
     font-weight: 400;
+    z-index: 1;
 }
 
 .dot {
@@ -249,17 +311,17 @@ body {
     transform: translateY(-50%);
 }
 
-/* .dot.blue {
+.dot.blue {
     background-color: #acd2ff;
     top: 23vh;
-    left: 48.8vw;
+    left: 58.8vw;
 }
 
 .dot.orange {
     background-color: #f6a67a;
     top: 72vh;
-    left: 48.8vw;
-} */
+    left: 37.3vw;
+}
 
 #progress-bar {
     width: 101vw;
@@ -279,8 +341,9 @@ body {
 .star-score {
     position: absolute;
     text-align: center;
-    top: 20vh;
+    top: 25vh;
     left: 62vw;
+    z-index: 1;
 }
 
 .purple-star {
@@ -291,10 +354,16 @@ body {
 .score {
     position: absolute;
     top: 29%;
-    left: 51%;
+    left: 50%;
     transform: translate(-50%, -50%);
     color: #fff;
     text-align: center;
     font-size: 2.8rem;
     font-weight: 400;
+}
+
+@media (max-height: 650px) {
+    .star-score {
+        top: 20vh;
+    }
 }

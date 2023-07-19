@@ -4,10 +4,15 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" type="text/css" href="styles/style.css" />
-        <link rel="icon" type="images/x-icon" href="assets/images/title-icon.ico" />
+        <link
+            rel="icon"
+            type="images/x-icon"
+            href="assets/images/title-icon.ico"
+        />
         <audio id="pop-sound" src="assets/sounds/pop.wav"></audio>
         <audio id="win-sound" src="assets/sounds/win.wav"></audio>
         <audio id="lose-sound" src="assets/sounds/lose.wav"></audio>
+        <audio id="click-sound" src="assets/sounds/click.wav"></audio>
         <title>Odd One Out</title>
     </head>
     <body>
@@ -20,17 +25,53 @@
         </div>
 
         <div id="start-page" class="active">
+            <img
+                src="assets/images/white-star.svg"
+                alt="White star"
+                class="white-star left"
+            />
+            <img
+                src="assets/images/white-star.svg"
+                alt="White star"
+                class="white-star right"
+            />
+            <p class="text-block right-aligned">
+                Find the color that is different from the rest and click on it
+                before the time runs out
+            </p>
             <div id="game-title">
                 <h1>Odd One Out</h1>
             </div>
             <button class="play-button special-margin">Let's play!</button>
+            <p class="text-block left-aligned">
+                This game was created by
+                <a target="_blank" href="https://github.com/katialiashevska">
+                    Katia Liashevska</a
+                >
+                at the Ironhack bootcamp in 2023
+            </p>
             <div class="vertical-line left"></div>
             <div class="dot purple"></div>
             <div class="vertical-line right"></div>
             <div class="dot pink"></div>
+            <div class="vertical-line top"></div>
+            <div class="dot blue"></div>
+            <div class="vertical-line bottom"></div>
+            <div class="dot orange"></div>
         </div>
 
         <div id="game-page" class="inactive">
+            <img
+                src="assets/images/white-star.svg"
+                alt="White star"
+                class="white-star left"
+            />
+            <img
+                src="assets/images/white-star.svg"
+                alt="White star"
+                class="white-star right"
+            />
+            <!-- <div id="clock"></div> -->
             <h1>Odd One Out</h1>
             <div id="game-container"></div>
             <h3 id="level">Level 1</h3>
@@ -43,17 +84,31 @@
             <div class="dot pink"></div>
         </div>
 
-        <div class="end-page win active">
+        <div class="end-page win inactive">
+            <img
+                src="assets/images/white-star.svg"
+                alt="White star"
+                class="white-star left"
+            />
+            <img
+                src="assets/images/white-star.svg"
+                alt="White star"
+                class="white-star right"
+            />
             <h2 id="well-done">Well done!</h2>
             <div class="star-score">
-                <img class="purple-star" src="assets/images/purple-star.svg" alt="Purple star">
-                <p class="score win">30/30</p>
+                <img
+                    class="purple-star"
+                    src="assets/images/purple-star.svg"
+                    alt="Purple star"
+                />
+                <p class="score win"></p>
             </div>
             <p class="credits">
-                This game was made by
-                <a href="https://www.linkedin.com/in/katia-liashevska/">
-                    Katia Liashevska
-                </a>
+                This game was created by
+                <a target="_blank" href="https://github.com/katialiashevska">
+                    Katia Liashevska</a
+                >
                 @ Ironhack
             </p>
             <button class="play-button play-again">Play again</button>
@@ -63,17 +118,31 @@
             <div class="dot pink"></div>
         </div>
 
-        <div class="end-page lose active">
+        <div class="end-page lose inactive">
+            <img
+                src="assets/images/white-star.svg"
+                alt="White star"
+                class="white-star left"
+            />
+            <img
+                src="assets/images/white-star.svg"
+                alt="White star"
+                class="white-star right"
+            />
             <h2 id="game-over">Game over!</h2>
             <div class="star-score">
-                <img class="purple-star" src="assets/images/purple-star.svg" alt="Purple star">
-                <p class="score lose">5/30</p>
+                <img
+                    class="purple-star"
+                    src="assets/images/purple-star.svg"
+                    alt="Purple star"
+                />
+                <p class="score lose"></p>
             </div>
             <p class="credits">
-                This game was made by
-                <a href="https://www.linkedin.com/in/katia-liashevska/">
-                    Katia Liashevska
-                </a>
+                This game was created by
+                <a target="_blank" href="https://github.com/katialiashevska">
+                    Katia Liashevska</a
+                >
                 @ Ironhack
             </p>
             <button class="play-button try-again">Try again</button>

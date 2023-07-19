@@ -6,19 +6,28 @@ class Game {
         this.progressBar = document.getElementById("progress-bar-fill")
         this.winPage = document.querySelector(".end-page.win")
         this.losePage = document.querySelector(".end-page.lose")
+        this.scoreWin = document.querySelector(".score.win")
+        this.scoreLose = document.querySelector(".score.lose")
         this.popSound = document.getElementById("pop-sound")
         this.winSound = document.getElementById("win-sound")
         this.loseSound = document.getElementById("lose-sound")
-        this.scoreWin = document.querySelector(".score.win")
-        this.scoreLose = document.querySelector(".score.lose")
 
         this.currentLevel = 1
         this.levelsTotal = 30
+        // this.intervalid = null
+        // this.currentTime = 0
+        // this.timeTotal = 60
         this.baseCircle = null
         this.oddCircle = null
         this.circleSize = 0
         this.gameIsOver = false
     }
+
+    // time() {
+    //     this.intervalId = setInterval(() => {
+    //         this.currentTime++
+    //     }, 1000) 
+    //   }
 
     amountOfCircles() {
         if (this.currentLevel <= 5) {
@@ -122,6 +131,8 @@ class Game {
             this.scoreLose.textContent = `${this.currentLevel - 1}/${this.levelsTotal}`
             this.level.textContent = "Level 1"
             this.currentLevel = 1
+            clearInterval(this.intervalId)
+            this.currentTime = 0
         })
     }
 
@@ -135,6 +146,8 @@ class Game {
             this.scoreWin.textContent = `${this.levelsTotal}/${this.levelsTotal}`
             this.level.textContent = "Level 1"
             this.currentLevel = 1
+            clearInterval(this.intervalId)
+            this.currentTime = 0
         }
     }
 
