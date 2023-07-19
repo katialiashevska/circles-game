@@ -7,6 +7,11 @@ class Game {
         this.winPage = document.querySelector(".end-page.win")
         this.losePage = document.querySelector(".end-page.lose")
         this.popSound = document.getElementById("pop-sound")
+        this.winSound = document.getElementById("win-sound")
+        this.loseSound = document.getElementById("lose-sound")
+        this.scoreWin = document.querySelector(".score.win")
+        this.scoreLose = document.querySelector(".score.lose")
+
         this.currentLevel = 1
         this.levelsTotal = 30
         this.baseCircle = null
@@ -67,7 +72,7 @@ class Game {
             this.baseCircle.style.width = this.circleSize + "rem"
             this.baseCircle.style.height = this.circleSize + "rem"
             this.gameContainer.appendChild(this.baseCircle)
-            this.loseLevel()
+            this.loseGame()
         }
         const oddProcedure = () => {
             this.oddCircle = document.createElement("div")
@@ -105,21 +110,31 @@ class Game {
         })
     }
 
-    loseLevel() {
+    loseGame() {
         this.baseCircle.addEventListener("click", () => {
             this.popSound.play()
+            setTimeout(() => {
+                this.loseSound.play()
+              }, 500)
             this.gameIsOver = true
             this.gamePage.classList.replace("active", "inactive")
             this.losePage.classList.replace("inactive", "active")
+            this.scoreLose.textContent = `${this.currentLevel - 1}/${this.levelsTotal}`
             this.level.textContent = "Level 1"
+            this.currentLevel = 1
         })
     }
 
     winGame() {
         if (this.currentLevel === 31) {
+            setTimeout(() => {
+                this.winSound.play()
+              }, 500)
             this.gamePage.classList.replace("active", "inactive")
             this.winPage.classList.replace("inactive", "active")
+            this.scoreWin.textContent = `${this.levelsTotal}/${this.levelsTotal}`
             this.level.textContent = "Level 1"
+            this.currentLevel = 1
         }
     }
 

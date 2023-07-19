@@ -4,8 +4,10 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" type="text/css" href="styles/style.css" />
-        <link rel="icon" type="images/x-icon" href="assets/title-icon.ico" />
-        <audio id="pop-sound" src="assets/pop.wav"></audio>
+        <link rel="icon" type="images/x-icon" href="assets/images/title-icon.ico" />
+        <audio id="pop-sound" src="assets/sounds/pop.wav"></audio>
+        <audio id="win-sound" src="assets/sounds/win.wav"></audio>
+        <audio id="lose-sound" src="assets/sounds/lose.wav"></audio>
         <title>Odd One Out</title>
     </head>
     <body>
@@ -41,12 +43,16 @@
             <div class="dot pink"></div>
         </div>
 
-        <div class="end-page win inactive">
+        <div class="end-page win active">
             <h2 id="well-done">Well done!</h2>
+            <div class="star-score">
+                <img class="purple-star" src="assets/images/purple-star.svg" alt="Purple star">
+                <p class="score win">30/30</p>
+            </div>
             <p class="credits">
                 This game was made by
                 <a href="https://www.linkedin.com/in/katia-liashevska/">
-                    Katia
+                    Katia Liashevska
                 </a>
                 @ Ironhack
             </p>
@@ -57,12 +63,16 @@
             <div class="dot pink"></div>
         </div>
 
-        <div class="end-page lose inactive">
+        <div class="end-page lose active">
             <h2 id="game-over">Game over!</h2>
+            <div class="star-score">
+                <img class="purple-star" src="assets/images/purple-star.svg" alt="Purple star">
+                <p class="score lose">5/30</p>
+            </div>
             <p class="credits">
                 This game was made by
                 <a href="https://www.linkedin.com/in/katia-liashevska/">
-                    Katia
+                    Katia Liashevska
                 </a>
                 @ Ironhack
             </p>

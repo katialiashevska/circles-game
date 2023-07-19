@@ -35,6 +35,6 @@ const startGame = () => {
     game = new Game()
     game.currentLevel = 1
     game.newLevel()
-    game.loseLevel()
+    game.loseGame()
     game.winGame()
 }
