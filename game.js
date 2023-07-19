@@ -6,6 +6,7 @@ class Game {
         this.progressBar = document.getElementById("progress-bar-fill")
         this.winPage = document.querySelector(".end-page.win")
         this.losePage = document.querySelector(".end-page.lose")
+        this.popSound = document.getElementById("pop-sound")
         this.currentLevel = 1
         this.levelsTotal = 30
         this.baseCircle = null
@@ -16,16 +17,16 @@ class Game {
 
     amountOfCircles() {
         if (this.currentLevel <= 5) {
-            this.circleSize = 16
+            this.circleSize = 14
             return 4
         } else if (this.currentLevel <= 10) {
-            this.circleSize = 11
+            this.circleSize = 9
             return 9
         } else if (this.currentLevel <= 20) {
-            this.circleSize = 7.5
+            this.circleSize = 7
             return 16
         } else {
-            this.circleSize = 6
+            this.circleSize = 5.8
             return 25
         }
     }
@@ -94,6 +95,7 @@ class Game {
 
     winLevel() {
         this.oddCircle.addEventListener("click", () => {
+            this.popSound.play()
             this.currentLevel++
             this.level.textContent = "Level " + this.currentLevel
             this.gameContainer.innerHTML = ""
@@ -105,6 +107,7 @@ class Game {
 
     loseLevel() {
         this.baseCircle.addEventListener("click", () => {
+            this.popSound.play()
             this.gameIsOver = true
             this.gamePage.classList.replace("active", "inactive")
             this.losePage.classList.replace("inactive", "active")
