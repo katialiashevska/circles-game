@@ -14,9 +14,9 @@ class Game {
 
         this.currentLevel = 1
         this.levelsTotal = 30
+        this.circleSize = 0
         this.baseCircle = null
         this.oddCircle = null
-        this.circleSize = 0
     }
 
     amountOfCircles() {
@@ -35,56 +35,59 @@ class Game {
         }
     }
 
-    generateRandomColor() {
+    generateRandomBaseColor() {
         let hue = Math.floor(Math.random() * 360)
         let saturation = 50
         let lightness = 50
-        let randomColor = `hsl(${hue}, ${saturation}%, ${lightness}%)`
-        return randomColor
+        let randomBaseColor = `hsl(${hue}, ${saturation}%, ${lightness}%)`
+        return randomBaseColor
     }
 
     generateOddColor(color) {
         let oddColor
+        let baseColorSliced = color.slice(0, color.length - 4)
         if (this.currentLevel <= 5) {
-            oddColor = color.slice(0, color.length - 4) + "70%)"
+            oddColor = baseColorSliced + "70%)"
         } else if (this.currentLevel <= 10) {
-            oddColor = color.slice(0, color.length - 4) + "65%)"
+            oddColor = baseColorSliced + "65%)"
         } else if (this.currentLevel <= 15) {
-            oddColor = color.slice(0, color.length - 4) + "60%)"
+            oddColor = baseColorSliced + "60%)"
         } else if (this.currentLevel <= 25) {
-            oddColor = color.slice(0, color.length - 4) + "58%)"
+            oddColor = baseColorSliced + "58%)"
         } else {
-            oddColor = color.slice(0, color.length - 4) + "55%)"
+            oddColor = baseColorSliced + "55%)"
         }
         return oddColor
     }
 
-    addCircles(amount) {
-        let baseColor = this.generateRandomColor()
-        let oddColor = this.generateOddColor(baseColor)
-        let randomIndex = Math.floor(Math.random() * amount)
-        const baseProcedure = () => {
-            this.baseCircle = document.createElement("div")
-            this.baseCircle.classList.add("game-circle")
-            this.baseCircle.style.backgroundColor = baseColor
-            this.baseCircle.style.width = this.circleSize + "rem"
-            this.baseCircle.style.height = this.circleSize + "rem"
-            this.gameContainer.appendChild(this.baseCircle)
+    // Function to create and style each new circle to be added to the game container
+    eachCircleProcedure(isOdd, color) {
+        let circle = document.createElement("div")
+        circle.classList.add("game-circle")
+        circle.style.backgroundColor = color
+        circle.style.width = this.circleSize + "rem"
+        circle.style.height = this.circleSize + "rem"
+        this.gameContainer.appendChild(circle)
+
+        if (isOdd) {
+            this.oddCircle = circle
+        } else {
+            this.baseCircle = circle
             this.loseGame()
         }
-        const oddProcedure = () => {
-            this.oddCircle = document.createElement("div")
-            this.oddCircle.classList.add("game-circle")
-            this.oddCircle.style.backgroundColor = oddColor
-            this.oddCircle.style.width = this.circleSize + "rem"
-            this.oddCircle.style.height = this.circleSize + "rem"
-            this.gameContainer.appendChild(this.oddCircle)
-        }
+    }
+
+    // Function to add circles to the game container
+    addCircles(amount) {
+        let baseColor = this.generateRandomBaseColor()
+        let oddColor = this.generateOddColor(baseColor)
+        let randomIndex = Math.floor(Math.random() * amount)
+
         for (let i = 0; i < amount; i++) {
             if (i === randomIndex) {
-                oddProcedure()
+                this.eachCircleProcedure(true, oddColor)
             } else {
-                baseProcedure()
+                this.eachCircleProcedure(false, baseColor)
             }
         }
     }
@@ -108,30 +111,35 @@ class Game {
         })
     }
 
-    loseGame() {
-        this.baseCircle.addEventListener("click", () => {
-            this.popSound.play()
-            setTimeout(() => {
-                this.loseSound.play()
-            }, 500)
-            this.gamePage.classList.replace("active", "inactive")
+    // Function to handle winning or losing the game that takes the sound to play 
+    // as a parameter to avoid code repetition
+    endGame(isWin, sound) {
+        this.popSound.play()
+        setTimeout(() => {
+            sound.play()
+        }, 500)
+        this.gamePage.classList.replace("active", "inactive")
+        this.currentLevel = 1
+        this.level.textContent = "Level 1"
+
+        if (isWin) {
+            this.winPage.classList.replace("inactive", "active")
+            this.scoreWin.textContent = `${this.levelsTotal}/${this.levelsTotal}`
+        } else {
             this.losePage.classList.replace("inactive", "active")
             this.scoreLose.textContent = `${this.currentLevel - 1}/${this.levelsTotal}`
-            this.currentLevel = 1
-            this.level.textContent = "Level 1"
+        }
+    }
+
+    loseGame() {
+        this.baseCircle.addEventListener("click", () => {
+            this.endGame(false, this.loseSound)
         })
     }
 
     winGame() {
         if (this.currentLevel === 31) {
-            setTimeout(() => {
-                this.winSound.play()
-            }, 500)
-            this.gamePage.classList.replace("active", "inactive")
-            this.winPage.classList.replace("inactive", "active")
-            this.scoreWin.textContent = `${this.levelsTotal}/${this.levelsTotal}`
-            this.currentLevel = 1
-            this.level.textContent = "Level 1"
+            this.endGame(true, this.winSound)
         }
     }
 
