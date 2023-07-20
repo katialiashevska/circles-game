@@ -118,9 +118,6 @@ class Game {
         setTimeout(() => {
             sound.play()
         }, 500)
-        this.gamePage.classList.replace("active", "inactive")
-        this.currentLevel = 1
-        this.level.textContent = "Level 1"
 
         if (isWin) {
             this.winPage.classList.replace("inactive", "active")
@@ -129,6 +126,10 @@ class Game {
             this.losePage.classList.replace("inactive", "active")
             this.scoreLose.textContent = `${this.currentLevel - 1}/${this.levelsTotal}`
         }
+
+        this.gamePage.classList.replace("active", "inactive")
+        this.currentLevel = 1
+        this.level.textContent = "Level 1"
     }
 
     loseGame() {
