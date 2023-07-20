@@ -17,7 +17,6 @@ class Game {
         this.baseCircle = null
         this.oddCircle = null
         this.circleSize = 0
-        this.gameIsOver = false
     }
 
     amountOfCircles() {
@@ -37,11 +36,10 @@ class Game {
     }
 
     generateRandomColor() {
-        let randomColor
         let hue = Math.floor(Math.random() * 360)
         let saturation = 50
         let lightness = 50
-        randomColor = `hsl(${hue}, ${saturation}%, ${lightness}%)`
+        let randomColor = `hsl(${hue}, ${saturation}%, ${lightness}%)`
         return randomColor
     }
 
@@ -116,16 +114,11 @@ class Game {
             setTimeout(() => {
                 this.loseSound.play()
             }, 500)
-            this.gameIsOver = true
             this.gamePage.classList.replace("active", "inactive")
             this.losePage.classList.replace("inactive", "active")
-            this.scoreLose.textContent = `${this.currentLevel - 1}/${
-                this.levelsTotal
-            }`
-            this.level.textContent = "Level 1"
+            this.scoreLose.textContent = `${this.currentLevel - 1}/${this.levelsTotal}`
             this.currentLevel = 1
-            clearInterval(this.intervalId)
-            this.currentTime = 0
+            this.level.textContent = "Level 1"
         })
     }
 
@@ -137,10 +130,8 @@ class Game {
             this.gamePage.classList.replace("active", "inactive")
             this.winPage.classList.replace("inactive", "active")
             this.scoreWin.textContent = `${this.levelsTotal}/${this.levelsTotal}`
-            this.level.textContent = "Level 1"
             this.currentLevel = 1
-            clearInterval(this.intervalId)
-            this.currentTime = 0
+            this.level.textContent = "Level 1"
         }
     }
 

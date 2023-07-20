@@ -37,10 +37,10 @@ const startGame = () => {
 }
 
 // I implemented an extra feature of custom cursor but after testing I wasn't sure about it anymore
-// I felt like it had some weird behaviours in my game and slowed things down a bit
-// So i decided to comment it out for now and maybe come back to it later
+// I felt like it had some weird behaviours in the game and slowed things down a bit
+// So I decided to comment it out for now and maybe come back to it later
 // The feature is fully functional though!
-
+//
 // const cursor = document.getElementById("cursor")
 // const positionElement = (e) => {
 //   const mouseY = e.clientY
