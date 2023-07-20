@@ -14,20 +14,11 @@ class Game {
 
         this.currentLevel = 1
         this.levelsTotal = 30
-        // this.intervalid = null
-        // this.currentTime = 0
-        // this.timeTotal = 60
         this.baseCircle = null
         this.oddCircle = null
         this.circleSize = 0
         this.gameIsOver = false
     }
-
-    // time() {
-    //     this.intervalId = setInterval(() => {
-    //         this.currentTime++
-    //     }, 1000) 
-    //   }
 
     amountOfCircles() {
         if (this.currentLevel <= 5) {
@@ -124,11 +115,13 @@ class Game {
             this.popSound.play()
             setTimeout(() => {
                 this.loseSound.play()
-              }, 500)
+            }, 500)
             this.gameIsOver = true
             this.gamePage.classList.replace("active", "inactive")
             this.losePage.classList.replace("inactive", "active")
-            this.scoreLose.textContent = `${this.currentLevel - 1}/${this.levelsTotal}`
+            this.scoreLose.textContent = `${this.currentLevel - 1}/${
+                this.levelsTotal
+            }`
             this.level.textContent = "Level 1"
             this.currentLevel = 1
             clearInterval(this.intervalId)
@@ -140,7 +133,7 @@ class Game {
         if (this.currentLevel === 31) {
             setTimeout(() => {
                 this.winSound.play()
-              }, 500)
+            }, 500)
             this.gamePage.classList.replace("active", "inactive")
             this.winPage.classList.replace("inactive", "active")
             this.scoreWin.textContent = `${this.levelsTotal}/${this.levelsTotal}`

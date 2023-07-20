@@ -1,10 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=Rakkas&display=swap");
+
 :root {
     --main-gray: #303030;
+    --main-font: "Rakkas", cursive;
+    --secondary-font: "Helvetica Neue", "Arial", sans-serif;
 }
 
 html {
     font-size: 10px;
-    font-family: "Helvetica Neue", "Arial", sans-serif;
+    font-family: "Rakkas", cursive, "Helvetica Neue", "Arial", sans-serif;
     max-height: 100vh;
     max-width: 100vw;
 }
@@ -100,6 +104,7 @@ body {
 }
 
 .play-button {
+    font-family: var(--secondary-font);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -125,6 +130,7 @@ body {
 }
 
 .text-block {
+    font-family: var(--secondary-font);
     width: 17vw;
     color: var(--main-gray);
     font-size: 2rem;
@@ -147,6 +153,7 @@ body {
 }
 
 a {
+    font-family: var(--secondary-font);
     color: var(--main-gray);
     font-weight: 700;
     text-decoration: none;
@@ -163,13 +170,13 @@ a:hover {
 }
 
 .white-star.left {
-    left: 8vw;
-    top: 8vh;
+    left: 10vw;
+    top: 10vh;
 }
 
 .white-star.right {
-    right: 10vw;
-    bottom: 10vh;
+    right: 11vw;
+    bottom: 11vh;
 }
 
 #game-page {
@@ -180,19 +187,10 @@ a:hover {
     height: 100vh;
 }
 
-/* #clock {
-    border-radius: 50%;
-    width: 6rem;
-    height: 6rem;
-    background-image: conic-gradient(#d6f67a 0deg 300deg, transparent 305deg);
-    border: 1px solid var(--main-gray);
-    z-index: 5;
-} */
-
 #game-page > h1 {
     color: var(--main-gray);
     text-align: center;
-    font-size: 3.5rem;
+    font-size: 2.5rem;
     font-weight: 400;
 }
 
@@ -216,7 +214,7 @@ a:hover {
     border: 1px solid var(--main-gray);
     color: var(--main-gray);
     text-align: center;
-    font-size: 2.5rem;
+    font-size: 3rem;
     font-weight: 400;
 }
 
@@ -282,6 +280,7 @@ a:hover {
 }
 
 .credits {
+    font-family: var(--secondary-font);
     color: var(--main-gray);
     text-align: center;
     font-size: 2rem;
@@ -342,7 +341,7 @@ a:hover {
     position: absolute;
     text-align: center;
     top: 25vh;
-    left: 62vw;
+    left: 61vw;
     z-index: 1;
 }
 

@@ -31,15 +31,15 @@ tryAgainButton.addEventListener("click", () => {
 const startGame = () => {
     game = new Game()
     game.currentLevel = 1
-    // game.time()
     game.newLevel()
     game.loseGame()
     game.winGame()
 }
 
-// I implemented an extra feature of custom cursor but after testing I wasn't sure about it anymore 
+// I implemented an extra feature of custom cursor but after testing I wasn't sure about it anymore
 // I felt like it had some weird behaviours in my game and slowed things down a bit
-// So i decided to comment it out for now and maybe come back to it later 
+// So i decided to comment it out for now and maybe come back to it later
+// The feature is fully functional though!
 
 // const cursor = document.getElementById("cursor")
 // const positionElement = (e) => {
