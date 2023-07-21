@@ -4,11 +4,20 @@ const playButton = document.querySelector(".play-button")
 const playAgainButton = document.querySelector(".play-again")
 const tryAgainButton = document.querySelector(".try-again")
 const clickSound = document.getElementById("click-sound")
+const soundButton = document.getElementById("sound-button")
 
 // Variable to store the game instance
 let game
 
-// One function to handle all button click events in a more concise way
+const startGame = () => {
+    game = new Game()
+    game.currentLevel = 1
+    game.newLevel()
+    game.loseGame()
+    game.winGame()
+}
+
+// One function to handle several button click events in a more concise way
 const handleButtonClick = (hidePage, showPage) => {
     clickSound.play()
     hidePage.classList.replace("active", "inactive")
@@ -28,13 +37,27 @@ tryAgainButton.addEventListener("click", () =>
     handleButtonClick(game.losePage, gamePage)
 )
 
-const startGame = () => {
-    game = new Game()
-    game.currentLevel = 1
-    game.newLevel()
-    game.loseGame()
-    game.winGame()
+// Function to mute each separate sound element in the game
+const muteMe = (sound) => {
+    if (!sound.muted) {
+        sound.muted = true
+        sound.pause()
+        soundButton.textContent = "🔊"
+    } else {
+        sound.muted = false
+        soundButton.textContent = "🔇"
+    }
 }
+
+// Function to mute all audio elements on the page
+const mutePage = () => {
+    document.querySelectorAll("audio").forEach((sound) => muteMe(sound))
+}
+
+soundButton.addEventListener("click", () => {
+    mutePage()
+    clickSound.play()
+})
 
 // I implemented an extra feature of custom cursor, but after testing I wasn't sure about it anymore
 // I felt like it had some weird behaviours in the game and slowed things down a bit

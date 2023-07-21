@@ -76,6 +76,27 @@ body {
     left: 90rem;
 }
 
+#sound-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.6rem 0.9rem 0.8rem 1.3rem;
+    border-radius: 50%;
+    border: 1px solid var(--main-gray);
+    background: #d6f67a;
+    box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.25);
+    font-size: 3rem;
+    cursor: pointer;
+    position: absolute;
+    top: 10vh;
+    right: 8vw;
+}
+
+#sound-button:hover {
+    background: #ecb0b0;
+    box-shadow: none;
+}
+
 #start-page {
     flex-direction: column;
     align-items: center;
@@ -136,7 +157,7 @@ body {
     color: var(--main-gray);
     font-size: 2rem;
     font-weight: 400;
-    margin: 13vh auto;
+    margin: 12.5vh auto;
 }
 
 @media (max-height: 650px) {
@@ -246,7 +267,7 @@ a:hover {
 
 .vertical-line {
     border-left: 1px solid var(--main-gray);
-    height: 90vh;
+    height: 92vh;
     position: absolute;
     top: 4vh;
 }
@@ -262,6 +283,7 @@ a:hover {
 .vertical-line.top {
     height: 20vh;
     left: 60vw;
+    top: 3vh;
 }
 
 .vertical-line.bottom {
@@ -329,13 +351,13 @@ a:hover {
 
 .dot.blue {
     background-color: #acd2ff;
-    top: 23vh;
+    top: 22.5vh;
     left: 58.8vw;
 }
 
 .dot.orange {
     background-color: #f6a67a;
-    top: 72vh;
+    top: 70.5vh;
     left: 37.3vw;
 }
 
