@@ -21,4 +21,4 @@ This game was made using HTML, CSS and JavaScript.
 
 ## Demo
 
-[Odd One Out](https://katialiashevska.github.io/odd-one-out-game/ "Odd One Out")
+[Odd One Out](https://katialiashevska.github.io/odd-one-out/ "Odd One Out")
